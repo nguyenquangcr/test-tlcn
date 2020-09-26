@@ -1,0 +1,24 @@
+<div class="row my-4">
+    <div class="col-12 text-center">
+        <button class="btn mr-2" [ngClass]="{'btn-success': LoaiTinTuc == 'dienanh'}" (click)="Chonloaitintuc('dienanh')">
+            Điện Ảnh
+        </button>
+        <button class="btn mr-2" [ngClass]="{'btn-success': LoaiTinTuc == 'review '}" (click)="Chonloaitintuc('review')">
+            Review
+        </button>
+        <button class="btn" [ngClass]="{'btn-success': LoaiTinTuc == 'khuyenmai'}" (click)="Chonloaitintuc('khuyenmai')">
+            Khuyến Mãi
+        </button>
+    </div>
+</div>
+<div class="row" [ngSwitch]="LoaiTinTuc">
+    <div *ngSwitchCase="'dienanh'" class="col-12">
+        <app-dien-anh></app-dien-anh>
+    </div>
+    <div *ngSwitchCase="'review'" class="col-12">
+        <app-review></app-review>
+    </div>
+    <div *ngSwitchCase="'khuyenmai'" class="col-12">
+        <app-khuyen-mai></app-khuyen-mai>
+    </div>
+</div>
